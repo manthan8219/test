@@ -5,10 +5,10 @@ import useGetTodos from "./useTodos.js";
 import { useState } from "react";
 
 export function App() {
-  const [todos, loading] = useGetTodos("https://localhost:8000/todos");
+  const [todos, loading] = useGetTodos("http://api:8000/todos/");
   const [newTodo, setNewTodo] = useState("");
   const [postResponse, postLoading, postError, postTodo] = usePostTodo(
-    "https://localhost:8000/todos",
+    "http://api:8000/todos/",
     { title: newTodo }
   );
 
