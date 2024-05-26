@@ -15,11 +15,13 @@ services:
   app:
     build: .
     container_name: app
-    command: bash -c "cd /src/app && yarn install && yarn upgrade && yarn start"
+    command: bash -c "cd /src/app && yarn upgrade && yarn start"
     ports:
       - "3000:3000"
     volumes:
       - ${ADBREW_CODEBASE_PATH}/src/app:/src/app
+    links:
+      - api
 
   mongo:
     build: .
